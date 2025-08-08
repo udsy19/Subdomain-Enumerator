@@ -5,3 +5,4 @@ asyncio-throttle>=1.0.2
 certifi>=2023.7.22
 openpyxl>=3.0.0
 rich>=13.0.0
+cryptography>=3.4.8

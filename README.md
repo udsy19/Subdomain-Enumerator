@@ -1,17 +1,55 @@
-# Ultra-Robust Subdomain Enumerator
+# Ultra-Robust Subdomain Enumerator v3.0
 
-A powerful, AI-enhanced subdomain enumeration tool designed for comprehensive cybersecurity reconnaissance and defensive security analysis.
+A powerful, AI-enhanced subdomain enumeration tool designed for comprehensive cybersecurity reconnaissance and defensive security analysis. Now with **11 advanced discovery sources** and **real-time interactive controls**.
 
-## 🚀 Features
+## 🚀 New Features (v3.0)
+
+### 🎮 **Interactive Controls**
+- **⏸️ SPACE** - Pause/Resume scanning in real-time
+- **🛑 Q** - Quit with automatic result saving
+- **⌨️ Keyboard Control** - Full keyboard interaction during scanning
+
+### 📊 **Enhanced Progress Tracking**
+- **tqdm Integration** - Professional progress bars with time tracking
+- **Elapsed/Remaining Time** - Know exactly how long scans take
+- **Processing Rate** - Real-time subdomains per second metrics
+- **ETA Calculations** - Accurate completion time estimates
+
+### 🔍 **11 Discovery Sources**
+1. **Certificate Transparency Mining** - Multiple CT log sources
+2. **DNS Intelligence** - 8+ resolver failover system
+3. **AI/ML Generation** - 6 different ML prediction techniques
+4. **Recursive Discovery** - Automated nested subdomain detection
+5. **DNS Zone Transfer** - Advanced DNS enumeration
+6. **DNS TXT Mining** - Hidden subdomain discovery
+7. **Reverse DNS Lookup** - Infrastructure mapping
+8. **DNS ANY Records** - Service discovery
+9. **Robots.txt Analysis** - Web crawler hint extraction
+10. **Sitemap Analysis** - XML sitemap subdomain extraction
+11. **Security.txt Analysis** - Security policy subdomain discovery
+
+### 📈 **Massive Performance Improvements**
+- **Lightning Mode**: 1000 DNS workers, 400 HTTP workers (2x faster)
+- **Aggressive Mode**: 800 DNS workers, 200 HTTP workers
+- **Memory Optimization** - Handles 4+ million subdomain wordlists efficiently
+- **Intelligent Batching** - Optimized for massive wordlist processing
+
+### 📋 **Excel Output Enhancements**
+- **Readable Source Names** - "Certificate Transparency" instead of "CT_Mining"
+- **Professional Formatting** - Color-coded results with confidence indicators
+- **Guaranteed Saving** - Results always saved, even when quitting early
+- **Enhanced SSL Analysis** - Certificate SAN field extraction
+
+## 🎯 Core Features
 
 - **Multi-Resolver DNS Intelligence** - Uses 8+ public DNS resolvers with intelligent failover
-- **Advanced Certificate Transparency Mining** - Queries multiple CT log sources
+- **Advanced Certificate Transparency Mining** - Queries multiple CT log sources  
 - **Machine Learning Predictions** - AI-powered subdomain pattern analysis and prediction
 - **Network Infrastructure Analysis** - Reverse DNS, subnet scanning, and ASN analysis
 - **Recursive Discovery** - Finds nested subdomains automatically
 - **Technology Detection** - Identifies web technologies and server information
 - **Real-time Statistics** - Performance metrics and resolver statistics
-- **Excel Reports** - Professional Excel output with color coding and statistics
+- **Professional Excel Reports** - Comprehensive Excel output with color coding and statistics
 
 ## 📦 Installation
 
@@ -27,192 +65,132 @@ A powerful, AI-enhanced subdomain enumeration tool designed for comprehensive cy
 git clone https://github.com/udsy19/Subdomain-Enumerator.git
 cd Subdomain-Enumerator
 
-# Install Python dependencies
-pip install -r requirements.txt
+# Install Python dependencies (will auto-install if missing)
+python3 main_tui_merged.py
 ```
 
 ### Manual Installation
 
 ```bash
-# Install Python dependencies
-pip install -r requirements.txt
+# Install required dependencies
+pip install rich tqdm aiohttp aiodns openpyxl cryptography
 
-# Make scripts executable (optional)
-chmod +x main.py tui_main.py
-```
-
-### Using pip (Recommended)
-
-```bash
-# Install from source
-pip install -e .
+# Run the tool
+python3 main_tui_merged.py
 ```
 
 ## 🎯 Usage
 
-### 🌟 Beautiful TUI Interface (Recommended)
+### 🌟 Beautiful TUI Interface
 
-Experience the stunning terminal UI with real-time progress tracking:
+Experience the enhanced terminal UI with real-time interactive controls:
 
 ```bash
-# Run with beautiful TUI interface
-python tui_main.py
+# Run the enhanced TUI interface
+python3 main_tui_merged.py
 ```
 
-**Features of the TUI:**
-- 🎨 **Gorgeous interface** with modern styling and colors
-- 📊 **Real-time progress bars** for each enumeration phase
-- 📈 **Live results table** with instant updates
-- ⌨️ **Intuitive keyboard navigation** with helpful shortcuts
-- 🎯 **Interactive configuration** with visual feedback
-- 📱 **Responsive design** that adapts to terminal size
-- 🏆 **Achievement system** with scan completion badges
+**Interactive Features:**
+- 🎨 **Modern Interface** - Gorgeous styling with live animations
+- ⏸️ **Pause/Resume** - SPACEBAR to pause/resume scanning anytime
+- 🛑 **Smart Quit** - Q key saves results before exiting
+- 📊 **tqdm Progress** - Professional progress bars with time tracking
+- 📈 **Real-time Stats** - Live discovery rate, ETA, and processing metrics
+- 🎯 **Interactive Wordlist Selection** - Choose from 9 different wordlists
+- 📱 **Responsive Design** - Adapts to any terminal size
 
 ### Configuration Options
 
-The TUI will guide you through these options:
+The TUI will guide you through these enhanced options:
 
 1. **🎯 Target Domain** - Enter the domain to enumerate (e.g., `example.com`)
 2. **🚀 Enumeration Mode**:
-   - **Standard** - Balanced speed and coverage (recommended)
-   - **Aggressive** - Maximum coverage, slower execution
-   - **Stealth** - Minimal footprint with longer timeouts
-   - **Lightning** - Speed-focused with basic techniques
-3. **📚 Wordlist Size**:
-   - **Compact (10k)** - Quick scan with common subdomains
-   - **Standard (50k)** - Balanced coverage for most targets
-   - **Extensive (110k)** - Comprehensive scan with full wordlist
-   - **Custom + ML (25k)** - AI-powered predictions + custom patterns
+   - **Standard** - 400 DNS workers, balanced coverage (recommended)
+   - **Aggressive** - 800 DNS workers, maximum coverage
+   - **Stealth** - 100 DNS workers, minimal footprint
+   - **Lightning** - 1000 DNS workers, maximum speed
+3. **📚 Wordlist Selection**:
+   - Choose from 9 different wordlists
+   - Support for massive 4+ million subdomain wordlists
+   - Intelligent memory management for large files
 
-### Command Line Interface (Alternative)
+### Real-time Control Commands
 
-For automation or scripting, use the CLI version:
+**During scanning:**
+- **SPACEBAR** - Pause/Resume scanning
+- **Q** - Quit and save results
+- **Ctrl+C** - Emergency stop with result saving
 
-```bash
-# Basic usage
-python main.py example.com
-
-# Advanced usage with options
-python main.py example.com --mode 2 --wordlist 3
-
-# Options:
-# --mode: 1=Standard, 2=Aggressive, 3=Stealth, 4=Lightning  
-# --wordlist: 1=Compact(10k), 2=Standard(50k), 3=Extensive(110k), 4=Custom+ML(25k)
-```
-
-### TUI Interface Preview
-
-The beautiful terminal interface provides an intuitive experience:
+### Live Progress Example
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                   🔍 Ultra-Robust Subdomain Enumerator                   │
-│                  Advanced AI-Powered Reconnaissance Tool v3.0            │
-└─────────────────────────────────────────────────────────────────────────┘
+🚀 Ultra-Robust Subdomain Enumeration Starting...
+════════════════════════════════════════════════════════════════════════════════
 
-┌─ 🎯 Target Domain ──────────────────────────────────────────────────────┐
-│                                                                         │
-│  ┌─────────────────────────────────────┐                                │
-│  │ example.com                         │                                │
-│  └─────────────────────────────────────┘                                │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
+🎧 Controls: SPACE = Pause/Resume, Q = Quit
 
-┌─ 🚀 Enumeration Mode ──────┐    ┌─ 📚 Wordlist Configuration ──────────┐
-│ Press Tab to cycle options │    │ Press Shift+Tab to cycle options      │
-│                            │    │                                       │
-│ ● Standard                 │    │ ○ Compact (10k)                      │
-│   Balanced speed & coverage│    │ ● Standard (50k)                     │
-│ ○ Aggressive               │    │   Balanced coverage for most targets  │
-│ ○ Stealth                  │    │ ○ Extensive (110k)                   │
-│ ○ Lightning                │    │ ○ Custom + ML (25k)                  │
-└────────────────────────────┘    └───────────────────────────────────────┘
+Overall Progress: 45%|████████████▒▒▒▒▒▒▒▒| 45/100 [00:23<00:28, 1.96%/s]
 
-┌─ ⌨️  Keyboard Shortcuts ───────────────────────────────────────────────┐
-│  Tab     Cycle enumeration mode      Shift+Tab  Cycle wordlist size    │
-│  Enter   Start scanning              Ctrl+C     Exit application       │
-└─────────────────────────────────────────────────────────────────────────┘
+🔍 www.example.com | Certificate Transparency | 93.184.216.34
+🔍 api.example.com | Certificate Transparency | 52.172.141.40
+🚨 INTERESTING: api.example.com - Potential security relevance!
 
-                          ✅ Ready to start scanning!
+💡 Certificate Transparency: CT Mining complete: 2 subdomains found
+💡 DNS Brute Force: Batch 5/1795 complete: 0 found, 2 total
+DNS Brute Force: Testing batch 6/1795 - 12,000/3,589,968 subdomains tested
+
+⏸️  PAUSED - Press SPACE to continue, Q to quit
+▶️  RESUMED
+
+⏱️  Elapsed: 00:23 | ETA: 00:28 | Rate: 145 subdomains/sec
 ```
 
-### Live Progress Tracking
+## 📁 Enhanced Output
 
-During scanning, watch real-time progress across all phases:
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                          🔍 Scanning: example.com                        │
-└─────────────────────────────────────────────────────────────────────────┘
-
-Mode: Aggressive   Wordlist: Standard   Found: 45 subdomains   🔴 LIVE
-
-┌─ 📜 Certificate Transparency ─┐  ┌─ 🤖 ML Predictions ──────────────┐
-│ ✅ 📜 Certificate Transparency │  │ 🔄 🤖 ML Predictions              │
-│                               │  │                                   │
-│ ████████████████████████████  │  │ ██████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒  │
-│ 100.0% • 67/67 • ETA: 0s     │  │ 75.2% • Rate: 245/sec • ETA: 12s │
-└───────────────────────────────┘  └───────────────────────────────────┘
-
-┌─ 🎯 DNS Brute Force ──────────┐  ┌─ 🌐 Infrastructure Analysis ─────┐
-│ ✅ 🎯 DNS Brute Force          │  │ ⏳ 🌐 Infrastructure Analysis     │
-│                               │  │                                   │
-│ ████████████████████████████  │  └───────────────────────────────────┘
-│ 100.0% • 50,000/50,000       │
-└───────────────────────────────┘  ┌─ 🔄 Recursive Discovery ─────────┐
-                                   │ ⏳ 🔄 Recursive Discovery         │
-                                   │                                   │
-                                   └───────────────────────────────────┘
-
-┌─ 📊 Live Results (45 found) ──────────────────────────────────────────┐
-│ Subdomain              │ Source           │ Status │ IPs              │
-│ api.example.com       │ CT_crt.sh        │ 200    │ 1.2.3.4          │
-│ dev.example.com       │ DNS_Intelligence │ 403    │ 5.6.7.8          │
-│ mail.example.com      │ ML_Prediction    │ 200    │ 9.10.11.12       │
-└─────────────────────────────────────────────────────────────────────────┘
-
-↑/↓ Navigate results • S Save current results • Q Stop scanning
-```
-
-## 📁 Output
-
-The tool generates comprehensive Excel reports in the `output/` directory:
+The tool generates comprehensive Excel reports with enhanced features:
 
 - **Filename**: `domain_ultra_robust_YYYYMMDD_HHMMSS.xlsx`
-- **Multiple Sheets**:
-  - **Subdomain Discovery** - Complete results with color coding
-  - **Statistics** - Source distribution and HTTP status analysis
+- **Enhanced Columns**:
+  - **Discovery_Source** - Human-readable source names
+  - **SSL Certificate Analysis** - Full SSL chain verification
+  - **Response Time Tracking** - Performance metrics
+  - **Technology Detection** - Server and framework identification
 
-### Excel Report Features
+### Excel Report Enhancements
 
-- **Color-coded HTTP status** (Green=200, Blue=3xx, Red=4xx+)
-- **Confidence scoring** (High/Medium/Low confidence indicators)
-- **Technology detection** (Server information, frameworks)
-- **Response time analysis**
-- **IP address mapping**
-- **Source attribution** (Which method found each subdomain)
+- **Readable Sources** - "Certificate Transparency" instead of "CT_Mining"
+- **Color-coded HTTP status** - Green=200, Blue=3xx, Red=4xx+
+- **Confidence scoring** - High/Medium/Low confidence indicators
+- **SSL Certificate SAN** - Subject Alternative Names extraction
+- **Guaranteed Saving** - Results saved even with early quit (Q or Ctrl+C)
 
-## 🔧 Configuration
+## 🔧 Enhanced Performance Configuration
 
-### Wordlists
+The tool now offers significantly improved performance:
 
-The tool includes several wordlists in the `wordlists/` directory:
+| Mode | DNS Workers | HTTP Workers | Timeout | Use Case |
+|------|-------------|--------------|---------|----------|
+| Standard | 400 | 100 | 5s | Balanced performance |
+| Aggressive | 800 | 200 | 8s | Maximum results |
+| Stealth | 100 | 50 | 15s | Minimal detection |
+| Lightning | 1000 | 400 | 3s | Maximum speed |
 
-- `subdomains-top1million-110000.txt` - Comprehensive subdomain list
-- `top-1000.txt` - Common subdomains with modern cloud services
-- `dns-records.txt` - DNS record-specific subdomains
-- `cloud-services.txt` - Cloud platform specific subdomains
+## 🔍 Discovery Source Details
 
-### Performance Tuning
+### Core Sources (Always Active)
+1. **Certificate Transparency** - Scans CT logs for domain certificates
+2. **DNS Intelligence** - Multi-resolver DNS queries with failover
+3. **AI/ML Generation** - 6 ML techniques including n-gram analysis
+4. **Recursive Discovery** - Finds subdomains from discovered subdomains
 
-The tool automatically configures performance based on your selected mode:
-
-| Mode | Threads | Timeout | HTTP Workers | Use Case |
-|------|---------|---------|--------------|----------|
-| Standard | 200 | 5s | 50 | Balanced performance |
-| Aggressive | 400 | 8s | 100 | Maximum results |
-| Stealth | 50 | 15s | 20 | Minimal detection |
-| Lightning | 500 | 3s | 200 | Speed focused |
+### Advanced Sources (v3.0)
+5. **DNS Zone Transfer** - Attempts zone transfers and DNS enumeration
+6. **DNS TXT Mining** - Extracts subdomains from TXT records
+7. **Reverse DNS** - Maps IP ranges to find additional subdomains
+8. **DNS ANY Records** - Service discovery through ANY queries
+9. **Robots.txt Analysis** - Finds admin/dev subdomains from robots files
+10. **Sitemap Analysis** - Extracts subdomains from XML sitemaps
+11. **Security.txt** - Discovers security-related subdomains
 
 ## 🛡️ Security & Ethics
 
@@ -229,45 +207,66 @@ This tool is designed for **defensive security purposes only**:
 
 ### Common Issues
 
-**DNS Resolution Errors**
+**Missing Dependencies**
+```bash
+# The tool will offer to auto-install missing packages
+# Or install manually:
+pip install rich tqdm aiohttp aiodns openpyxl cryptography
 ```
-⚠️ CT Source failed: DNS resolution error
-```
-- **Solution**: Check internet connection, try different network
 
-**Permission Denied**
-```
-❌ Missing advanced dependency: aiodns
-```
-- **Solution**: Install dependencies: `pip install aiodns aiohttp openpyxl`
+**Memory Issues with Large Wordlists**
+- The tool now uses memory-mapped I/O for files >1MB
+- Automatic garbage collection during processing
+- Choose smaller wordlists if you encounter issues
 
-**No Results Found**
-```
-⚠️ No subdomains discovered with current configuration
-```
-- **Solution**: Try aggressive mode, check domain validity, verify DNS settings
+**Performance Issues**
+- Start with Standard mode (400 workers)
+- Use Lightning mode (1000 workers) for maximum speed
+- Use Stealth mode (100 workers) if encountering rate limits
 
-**Memory Issues**
-```
-MemoryError during batch processing
-```
-- **Solution**: Use Standard or Stealth mode, reduce wordlist size
+### Interactive Controls Not Working
 
-### Performance Tips
+If keyboard controls don't respond:
+- Ensure terminal supports input (not just output redirection)
+- Try running in a standard terminal (not IDE console)
+- Check that stdin is available for the process
 
-1. **Start with Standard mode** for most use cases
-2. **Use Stealth mode** if you encounter rate limiting
-3. **Try Lightning mode** for quick scans
-4. **Use Custom + ML** for domains with existing subdomains
+## 📈 Performance Benchmarks
 
-### Getting Help
+**v3.0 Performance Improvements:**
+- **2x Faster**: Lightning mode now uses 1000 DNS workers
+- **Memory Efficient**: Handles 4+ million subdomain wordlists
+- **Smart Batching**: Optimized batch processing reduces overhead
+- **Real-time Control**: Pause/resume without losing progress
 
-If you encounter issues:
+**Typical Performance:**
+- **Small Domain** (1-50 subdomains): 30-60 seconds
+- **Medium Domain** (50-200 subdomains): 2-5 minutes  
+- **Large Domain** (200+ subdomains): 5-15 minutes
+- **Processing Rate**: 100-500 subdomains/second depending on mode
 
-1. Check the **troubleshooting section** above
-2. Verify you have the **latest dependencies**
-3. Try running with a **smaller wordlist** first
-4. Check your **network connectivity**
+## 📝 Version History
+
+**v3.0 (Current)**
+- ✅ Interactive pause/resume controls (SPACE/Q keys)  
+- ✅ tqdm integration with time tracking
+- ✅ 11 discovery sources (7 new advanced sources)
+- ✅ 2x performance improvement (1000 DNS workers max)
+- ✅ Enhanced Excel output with readable source names
+- ✅ Guaranteed result saving on early quit
+- ✅ Memory optimization for massive wordlists
+- ✅ SSL certificate SAN field extraction
+
+**v2.0**
+- Multi-resolver DNS intelligence
+- Certificate transparency mining
+- Basic ML predictions
+- Excel report generation
+
+**v1.0**
+- Basic subdomain enumeration
+- Simple DNS queries
+- Text output
 
 ## 📝 License
 
@@ -275,4 +274,6 @@ This project is provided for educational and defensive security purposes. Users 
 
 ---
 
-**🔍 Happy hunting! Remember to use this tool responsibly and ethically.**
+**🔍 Happy hunting with v3.0! Remember to use this tool responsibly and ethically.**
+
+*New in v3.0: Interactive controls, enhanced performance, and 11 discovery sources for the most comprehensive subdomain enumeration available.*
